@@ -16,7 +16,7 @@ sh ~/.spf13-personal/configure.sh
 
 The settings in higher numbered files take higher precedence
 
-1. `.vimrc.before`
+1. `.vimrc.before` (don't modify)
 
     Shipped with spf13-vim with some flag-like variables to control some basic behaviors.
 
@@ -32,7 +32,7 @@ The settings in higher numbered files take higher precedence
 
     Create your own flag-like variables
 
-4. `.vimrc.bundles`
+4. `.vimrc.bundles` (don't modify)
 
     The packages to install depending on the elements defined in `g:spf13_bundle_groups`
 
@@ -46,7 +46,7 @@ The settings in higher numbered files take higher precedence
 
     e.g. `Bundle 'mattn/emmet-vim'`
 
-7. `.vimrc`
+7. `.vimrc` (don't modify)
 
     The central place that controls file loading precedence, default key mappings and bundle configurations.
 

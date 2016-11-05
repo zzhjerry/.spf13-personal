@@ -1,0 +1,151 @@
+set nospell
+set scrolljump=1
+
+if isdirectory(expand("~/.vim/bundle/nerdtree"))
+    map <C-s> <plug>NERDTreeTabsToggle<CR>
+end
+
+" let g:mirodark_disable_color_approximation=1
+" let g:mirodark_enable_higher_contrast_mode=1
+
+set relativenumber
+set autochdir
+if has("gui_running")
+  colorscheme molokai
+  set guifont=Monaco:h11
+  set guioptions=cmg
+  " Maximize gvim window (for an alternative on Windows, see simalt below).
+  set lines=999 columns=999
+else
+  " This is for console Vim.
+  set background=light
+  let g:solarized_visibility = "high"
+  let g:solarized_contrast = "high"
+  colorscheme solarized
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
+
+hi clear SpellBad
+
+inoremap jk <Esc>
+
+
+" Buffer manipulation shortcuts
+nnoremap   <c-c>    :bd<CR>
+nnoremap   <leader>o    <C-^>
+inoremap   <c-e>        <c-[>A
+nnoremap   <leader>sf   : source ~/.vimrc.local<CR>
+nnoremap   <leader>vf   : vsplit ~/.vimrc.local<CR>
+nnoremap   <leader>vbdl : vsplit ~/.vimrc.bundles.local<CR>
+nnoremap   <leader>vbfl : vsplit ~/.vimrc.before.local<CR>
+nnoremap   <leader>vc   : vsplit ~/.vimrc<CR>
+nnoremap   <leader>w        : w<CR>
+nnoremap   <c-q>        : q<CR>
+unmap      <leader>sc
+nnoremap   <leader>sc : qall<CR>
+nnoremap   <c-a>        : CtrlPCurWD<CR>
+nnoremap   zx           zA
+
+
+" Utils
+nnoremap   <leader>d    :r! date "+\%Y-\%m-\%d"<CR>
+
+
+" autocommands
+augroup customgroup
+    autocmd!
+    autocmd FileType html,htmldjango,hbs,coffee,javascript setlocal expandtab shiftwidth=2 softtabstop=2
+    autocmd BufRead md setlocal wrap, wm=2
+augroup end
+let g:user_emmet_mode='iv'
+
+
+" Autocompletion customization
+" let g:ycm_server_log_level = 'debug'
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
+
+" markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+
+
+" Autopair customization
+let g:AutoPairsShortcutJump = '<C-g>'
+
+" Use neocomplete.
+    " Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+set foldmethod=manual
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" vim-slack customization
+let g:slack_incoming_token = 'xoxp-22155006614-22151287683-35042945474-5e0a2014fa'
+
+
+" vim multiple cursor
+let g:multi_cursor_exit_from_insert_mode = 0 "still use multiple cursor when back from insert mode to normal mode
+let g:multi_cursor_exit_from_visual_mode = 0
+
+if !has('python')
+    let g:pymode = 0
+endif
+
+if isdirectory(expand("~/.vim/bundle/python-mode"))
+    let g:pymode_lint_checkers = ['flake8', 'pep8']
+    let g:pymode_trim_whitespaces = 1
+    " Pylint
+    let g:syntastic_python_checker_args = '--ignore=E901'
+    let g:syntastic_python_flake8_args='--ignore=E901'
+    let g:syntastic_python_python_exec = "/Library/Frameworks/Python.framework/Versions/3.4/bin/python3"
+endif
+
+inoremap <silent><tab> <c-r>=CleverTab#Complete('start')<cr>
+                      \<c-r>=CleverTab#Complete('tab')<cr>
+                      \<c-r>=CleverTab#Complete('ultisnips')<cr>
+                      \<c-r>=CleverTab#Complete('keyword')<cr>
+                      \<c-r>=CleverTab#Complete('neocomplete')<cr>
+                      \<c-r>=CleverTab#Complete('omni')<cr>
+                      \<c-r>=CleverTab#Complete('stop')<cr>
+inoremap <silent><s-tab> <c-r>=CleverTab#Complete('prev')<cr>
+
+" syntatic
+let g:syntastic_html_tidy_ignore_errors = [
+    \ 'proprietary attribute "ng-',
+    \ "<ion-",
+    \ "discarding unexpected </ion-",
+    \ 'plain text isn''t allowed in <head> elements',
+    \ ]
+let g:syntastic_javascript_checkers = ['jshint']
+
+
+" tagbar
+let g:tagbar_autofocus = 1
+
+
+augroup forCoffeescript
+    autocmd!
+    autocmd BufNewFile,BufRead *.coffee setl foldmethod=indent nofoldenable
+augroup end
+
+" easymotion
+map , <Plug>(easymotion-prefix)
+nnoremap <Leader>b <Plug>(easymotion-iskeyword-b)
+let g:EasyMotion_keys = 'asdghklqwertyuiopzxcvbnmfj'
+
+
+" vim indent-guide
+let indent_guides_enable_on_vim_startup = 0
+
+
+" Javascritp Library syntax
+" let g:used_javascript_libs = 'jquery,underscore,backbone' // this is the default setting

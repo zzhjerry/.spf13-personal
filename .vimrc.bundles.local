@@ -1,0 +1,36 @@
+Bundle 'djjcast/mirodark'
+Bundle 'mattn/emmet-vim'
+Bundle 'heavenshell/vim-slack'
+Bundle 'wesQ3/vim-windowswap'
+Bundle 'Konfekt/FastFold'
+
+" Erlang bundles
+Bundle 'vim-erlang/vim-erlang-runtime'
+Bundle 'vim-erlang/vim-erlang-compiler'
+Bundle 'vim-erlang/vim-erlang-omnicomplete'
+
+" Js bundles
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+" Python bundles
+Bundle 'nvie/vim-flake8'
+
+" Autocomplete
+
+if count(g:spf13_bundle_groups, 'neocomplete')
+    Bundle 'SirVer/ultisnips'
+endif
+
+" Misc
+Bundle 'terryma/vim-expand-region'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'Yggdroot/indentLine'
+Bundle 'jszakmeister/vim-togglecursor'
+Bundle 'neitanod/vim-clevertab'
+Bundle 'itspriddle/vim-marked'
+
+" UnBundle
+UnBundle 'tpope/vim-markdown'
+

@@ -1,14 +1,5 @@
 " Overwrite configurable variables in .vimrc.before
-let g:spf13_bundle_groups=[ \
-    'general',              \
-    'writing',              \
-    'neocomplete',          \
-    'programming',          \
-    'python',               \
-    'javascript',           \
-    'html',                 \
-    'misc'                  \
-]
+let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'python', 'javascript', 'html', 'misc']
 
 let g:spf13_leader = "\<Space>"
 let g:spf13_edit_config_mapping = "<Leader>ev"

@@ -88,10 +88,6 @@ let g:UltiSnipsExpandTrigger="<Tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" vim-slack customization
-let g:slack_incoming_token = 'xoxp-22155006614-22151287683-35042945474-5e0a2014fa'
-
-
 " vim multiple cursor
 let g:multi_cursor_exit_from_insert_mode = 0 "still use multiple cursor when back from insert mode to normal mode
 let g:multi_cursor_exit_from_visual_mode = 0
